@@ -1,0 +1,26 @@
+{
+  "name": "blogbot",
+  "version": "0.1.0",
+  "description": "Blogging site",
+  "main": "start.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rhouse00/BlogBot.git"
+  },
+  "author": "Ryan House",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rhouse00/BlogBot/issues"
+  },
+  "homepage": "https://github.com/rhouse00/BlogBot#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "mongoose": "^5.0.5",
+    "morgan": "^1.9.0",
+    "passport": "^0.4.0"
+  }
+}
