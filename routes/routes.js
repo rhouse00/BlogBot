@@ -1,36 +1,50 @@
 const express = require('express');
 const router = express.Router();
 
-function filler(){
-    console.log('yippie');
-}
-
 // SITE VISITOR
 
 // landing page
-router.get('/', filler() );
+router.get('/', function (){
+    console.log('yippie');
+} );
 
 // all posts
-router.get('/posts', filler() );
+router.get('/posts', function (){
+    console.log('yippie');
+} );
 
 // individual post
-router.get('/posts/:slug', filler() );
+router.get('/posts/:slug', function (){
+    console.log('yippie');
+} );
 
 // ADMIN pages
 
 // landing page
-router.get('/admin', filler() );
+router.get('/admin', function (){
+    console.log('yippie');
+} );
 
 // post creation
-router.get('/admin/new', filler() );
-router.post('/admin/new', filler() );
+router.get('/admin/new', function (){
+    console.log('yippie');
+} );
+router.post('/admin/new', function (){
+    console.log('yippie');
+} );
 
 // all posts
-router.get('/admin/posts', filler() );
+router.get('/admin/posts', function (){
+    console.log('yippie');
+} );
 
 // edit post
-router.get('/admin/post/:id', filler() );
-router.post('/admin/post/:id', filler() );
+router.get('/admin/post/:id', function (){
+    console.log('yippie');
+} );
+router.post('/admin/post/:id', function (){
+    console.log('yippie');
+} );
 
-
+module.exports = router;
 

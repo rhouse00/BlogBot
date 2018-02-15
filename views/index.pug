@@ -1,0 +1,17 @@
+doctype html
+    html
+        head
+            title= `${title}`
+            meta(name='viewport' content='width=device-width, initial-scale=1')
+            meta(charser='utf8')
+        body
+            block header
+                .header
+                    .nav
+                    .account
+            block content
+                p this is the default but will be overridden
+            block footer
+                p Footy mcFooterFace
+            block scripts
+                script(src='')

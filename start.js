@@ -1,4 +1,4 @@
-const PORT = process.env.PORT || 1234;
+const PORT = process.env.PORT || 4444;
 
 const [major, minor] = process.versions.node.split('.').map(parseFloat);
 
