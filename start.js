@@ -1,3 +1,4 @@
+const mongoose = require('mongoose');
 const PORT = process.env.PORT || 4444;
 
 const [major, minor] = process.versions.node.split('.').map(parseFloat);
@@ -10,8 +11,19 @@ if(major < 7 || (major === 7 && minor <= 5) ) {
 require('dotenv').config({ path: 'variables.env'});
 
 // input db connection informaiton here
+mongoose.connect(process.env.DATABASE);
+mongoose.Promise = global.Promise;
+const db = mongoose.connection;
+
+db.on('error', (err) => {
+    console.log('Mongoose Error:', err);
+})
+db.once('open', () => {
+    console.log('Mongoose connection succesful');
+})
 
 // import db models here!!
+require('./models/Post');
 // require('./models/....);
 
 const app = require('./app');
