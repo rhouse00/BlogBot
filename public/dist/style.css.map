@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///./public/sass/partials/_postcard.scss"],"names":[],"mappings":"AACA;EACI,oBACJ,EAAE;;AAEF;EACI,eACJ,EAAE","file":"style.css","sourcesContent":["\n.postcard {\n    background: #ce0e0e\n}\n\nh2 {\n    color: #15afa5\n}\n\n\n// WEBPACK FOOTER //\n// ./public/sass/partials/_postcard.scss"],"sourceRoot":""}
