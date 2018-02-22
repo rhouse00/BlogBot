@@ -1,0 +1,9 @@
+extends index
+
+include mixins/_postCard
+
+block content
+        .inner
+                .posts
+                        each post in posts
+                                +postCard(post)

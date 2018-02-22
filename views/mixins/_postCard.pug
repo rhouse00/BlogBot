@@ -1,0 +1,10 @@
+mixin postCard(post = {})
+    .post
+        .post_title
+            p= post.title
+        .post_body
+            p= post.content
+        .post_author
+            p= post.author
+        .post_date
+            p= post.created

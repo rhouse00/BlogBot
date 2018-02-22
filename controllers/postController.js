@@ -22,7 +22,7 @@ exports.getPosts = async (req, res) => {
     if(!posts.length && skip) {
         res.redirect(`/posts/page/${pages}`);
     }
-    res.render('editPost', {'title': 'Posts', posts, count });
+    res.render('posts', {'title': 'Posts', posts, count });
 
 };
 
