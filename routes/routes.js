@@ -43,6 +43,9 @@ router.get('/posts/page/:page', catchErrors(postController.getPosts) );
 // // add post
 router.get('/admin/add', catchErrors(postController.addPost));
 
+// // create post
+router.post('/admin/add', catchErrors(postController.createPost));
+
 // edit post
 router.get('/admin/post/:id', catchErrors(postController.editPost) );
 router.post('/admin/post/:id', function (){

@@ -26,6 +26,11 @@ exports.getPosts = async (req, res) => {
 
 };
 
+exports.createPost = async (req, res) => {
+    const post = await (new Post(req.body)).save();
+    res.redirect(`/admin/post/${post._id}`);
+}
+
 exports.editPost = async (req, res) => {
     res.json('edit page!');
 };
