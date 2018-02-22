@@ -1,0 +1,10 @@
+mixin postForm(post = {})
+    form(action=`/admin/add/${post._id || ''}` method='POST')
+        label(for='title') Title
+        input(type='text' name='title' value=post.title)
+        label(for='content') Content
+        textarea(name='content')= post.content
+        label(for='author') Author
+        input(type='text' name='author' value=(post.author || ''))
+        input(type='submit' value='Save' class='button')
+    

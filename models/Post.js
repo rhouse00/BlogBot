@@ -13,7 +13,10 @@ const postSchema = new mongoose.Schema({
         trim: true,
         required: 'Please insert / add content to your post'
     },
-    slug: String,
+    author: {
+        type: String,
+        trim: true
+    },
     created: {
         type: Date,
         default: Date.now

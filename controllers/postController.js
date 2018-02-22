@@ -31,8 +31,13 @@ exports.createPost = async (req, res) => {
     res.redirect(`/admin/post/${post._id}`);
 }
 
-exports.editPost = async (req, res) => {
-    res.json('edit page!');
+exports.editPost = async (req, res, next) => {
+    const post = await Post.findOne({_id: req.params.id});
+    if(!post) {
+        next();
+        return;
+    }
+    res.render('editPost', {post, title: post.title });
 };
 
 exports.addPost = async (req, res) => {
