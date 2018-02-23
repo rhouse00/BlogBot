@@ -40,17 +40,15 @@ router.get('/posts/page/:page', catchErrors(postController.getPosts) );
 //     console.log('yippie');
 // } );
 
-// // add post
+// // add post page
 router.get('/admin/add', catchErrors(postController.addPost));
+// edit post page
+router.get('/admin/posts/:id', catchErrors(postController.editPost) );
 
 // // create post
 router.post('/admin/add', catchErrors(postController.createPost));
-
-// edit post
-router.get('/admin/post/:id', catchErrors(postController.editPost) );
-router.post('/admin/post/:id', function (){
-    console.log('yippie');
-} );
+// // update post
+router.post('/admin/add/:id', catchErrors(postController.updatePost) );
 
 module.exports = router;
 

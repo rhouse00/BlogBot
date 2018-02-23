@@ -28,7 +28,7 @@ exports.getPosts = async (req, res) => {
 
 exports.createPost = async (req, res) => {
     const post = await (new Post(req.body)).save();
-    res.redirect(`/admin/post/${post._id}`);
+    res.redirect(`/admin/posts/${post._id}`);
 }
 
 exports.editPost = async (req, res, next) => {
@@ -39,6 +39,16 @@ exports.editPost = async (req, res, next) => {
     }
     res.render('editPost', {post, title: post.title });
 };
+
+exports.updatePost = async (req, res) => {
+    const post = await Post.findOneAndUpdate({_id: req.params.id}, req.body, {
+        new: true
+        // runValidators: true - reruns validators
+    })
+    .exec();
+
+    res.redirect(`/admin/posts/${post.id}`);
+}
 
 exports.addPost = async (req, res) => {
     res.render('editPost', {title: 'Add / Edit Post'});
