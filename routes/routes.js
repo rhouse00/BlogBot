@@ -28,7 +28,7 @@ router.get('/posts/page/:page', catchErrors(postController.getPosts) );
 // } );
 
 // all posts
-router.get('/admin/posts', catchErrors(postController.getAdminPosts));
+router.get('/admin/posts', catchErrors(postController.getPosts));
 
 // // add post page
 router.get('/admin/add', catchErrors(postController.addPost));
