@@ -1,0 +1,16 @@
+extends index
+
+include mixins/_postList
+
+block content
+   table
+      thead
+         tr
+            th Post Title
+            th Content
+            th Author
+            th Created
+      tbody
+         each post in posts
+            tr
+              +postList(post)

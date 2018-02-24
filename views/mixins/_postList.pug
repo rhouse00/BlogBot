@@ -1,0 +1,11 @@
+mixin postList(post ={})
+   td.post_title
+      p= post.title
+   td.post_body
+      p= post.content
+   td.post_author
+      p= post.author
+   td.post_date
+      p= h.moment(post.created).format("dddd, MMMM Do YYYY, h:mm:ss a")
+   td.edit
+      a(href=`/admin/posts/${post._id}`) Edit
