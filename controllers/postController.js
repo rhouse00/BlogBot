@@ -3,7 +3,8 @@ const mongoose = require('mongoose');
 const Post = mongoose.model('Post');
 
 exports.getPosts = async (req, res) => {
-    const pugFile = 'post';
+    const pugFile = req.baseUrl === 'admin' ? 'adminPosts' : 'posts';
+    console.log(req.baseUrl);
     const page = req.params.page || '1';
     const limit = '6';
     const skip = (limit * page) - limit;
@@ -22,9 +23,36 @@ exports.getPosts = async (req, res) => {
     if(!posts.length && skip) {
         res.redirect(`/posts/page/${pages}`);
     }
-    res.render('posts', {'title': 'Posts', posts, count });
+    res.render(pugFile, {'title': 'Posts', posts, count, pugFile });
 
 };
+
+exports.getAdminPosts = async (req, res) => {
+    const pugFile = 'adminPosts';
+    console.log(req.baseUrl);
+    const page = req.params.page || '1';
+    const limit = '10';
+    const skip = (limit * page) - limit;
+
+    const postPromise = Post
+        .find()
+        // .skip(skip)
+        // .limit(limit)
+        // .sort({ created: 'desc' });
+    
+    const countPromise = Post.count();
+
+    const [posts, count] = await Promise.all([postPromise, countPromise]);
+    const pages = Math.ceil(count / limit);
+
+    if(!posts.length && skip) {
+        res.redirect(`/posts/page/${pages}`);
+    }
+    res.render('adminPosts', {'title': 'Post List', posts, count });
+
+};
+
+
 
 exports.createPost = async (req, res) => {
     const post = await (new Post(req.body)).save();

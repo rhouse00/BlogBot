@@ -27,18 +27,8 @@ router.get('/posts/page/:page', catchErrors(postController.getPosts) );
 //     console.log('yippie');
 // } );
 
-// // post creation
-// router.get('/admin/new', function (){
-//     console.log('yippie');
-// } );
-// router.post('/admin/new', function (){
-//     console.log('yippie');
-// } );
-
-// // all posts
-// router.get('/admin/posts', function (){
-//     console.log('yippie');
-// } );
+// all posts
+router.get('/admin/posts', catchErrors(postController.getAdminPosts));
 
 // // add post page
 router.get('/admin/add', catchErrors(postController.addPost));
