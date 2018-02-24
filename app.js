@@ -9,6 +9,7 @@ const promisify = require('es6-promisify');
 const app = express();
 
 const routes = require('./routes/routes');
+const helpers = require('./helpers');
 
 require('dotenv').config({ path: 'variables.env'});
 
@@ -27,7 +28,12 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
     store: new MongoStore({mongooseConnection: mongoose.connection})
-}))
+}));
+
+app.use( (req, res, next) => {
+    res.locals.h = helpers;
+    next();
+});
 
 app.use('/', routes);
 module.exports = app;

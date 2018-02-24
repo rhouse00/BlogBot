@@ -1,6 +1,18 @@
 .post {
    background: white;
-   padding: 5px 0;
+   padding: 5px;
    margin: 10px;
    box-sizing: border-box;
+}
+.post_title {
+   font-size: 14px;
+}
+.post_body {
+   padding: 0 5px;
+}
+.post_author {
+   font-size: 12px;
+}
+.post_created {
+   font-size: 12px;
 }
