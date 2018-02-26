@@ -23,9 +23,9 @@ router.get('/posts/page/:page', catchErrors(postController.getPosts) );
 // // ADMIN pages
 
 // // landing page
-// router.get('/admin', function (){
-//     console.log('yippie');
-// } );
+router.get('/admin', (req, res) => {
+   res.render('adminLanding', { title: 'Admin Console' } );
+});
 
 // all posts
 router.get('/admin/posts', catchErrors(postController.getPosts));

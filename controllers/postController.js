@@ -53,3 +53,4 @@ exports.updatePost = async (req, res) => {
 exports.addPost = async (req, res) => {
     res.render('editPost', {title: 'Add / Edit Post'});
 }
+
