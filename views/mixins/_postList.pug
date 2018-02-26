@@ -2,7 +2,10 @@ mixin postList(post ={})
    td.post_title
       p= post.title
    td.post_body
-      p= post.content
+      if post.content.length > 40
+         p= post.content.substr(0,40) + '...'
+      else if post.content.length <= 40
+        p= post.content
    td.post_author
       p= post.author
    td.post_date
