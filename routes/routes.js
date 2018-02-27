@@ -14,6 +14,7 @@ router.get('/posts', catchErrors(postController.getPosts) );
 
 // all posts paginated
 router.get('/posts/page/:page', catchErrors(postController.getPosts) );
+router.get('/admin/posts/page/:page', catchErrors(postController.getPosts) );
 
 // // individual post
 // router.get('/posts/:slug', function (){

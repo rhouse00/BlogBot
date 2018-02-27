@@ -1,9 +1,11 @@
 extends index
 
 include mixins/_postList
+include mixins/_pagination
 
 block content
-   table
+  .post_table
+    table
       thead
          tr
             th Post Title
@@ -14,3 +16,4 @@ block content
          each post in posts
             tr
               +postList(post)
+  +pagination(page, pages, count, pugRoute)

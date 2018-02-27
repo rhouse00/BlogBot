@@ -4,6 +4,7 @@ const Post = mongoose.model('Post');
 
 exports.getPosts = async (req, res) => {
     const pugFile = req.path.includes('admin') ? 'adminPosts' : 'posts';
+    const pugRoute = pugFile === "adminPosts" ? '/admin/posts/page/' : '/posts/page/';
     const page = req.params.page || '1';
     const limit = 6;
     const skip = (limit * page) - limit;
@@ -20,9 +21,9 @@ exports.getPosts = async (req, res) => {
     const pages = Math.ceil(count / limit);
 
     if(!posts.length && skip) {
-        res.redirect(`/posts/page/${pages}`);
+        res.redirect(`${pugRoute}${pages}`);
     }
-    res.render(pugFile, {'title': 'Posts', posts, count });
+    res.render(pugFile, {'title': 'Posts', posts, count, page, pages, pugRoute });
 
 };
 

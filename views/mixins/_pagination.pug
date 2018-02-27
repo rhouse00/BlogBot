@@ -1,0 +1,12 @@
+mixin pagination(page, pages, count)
+   .pagination
+      .pagination_prev
+         if page > 1
+            a(href=`${pugRoute}${page - 1}`)
+               span Previous Page
+      .pagination_current
+         p Page #{page} of #{pages}
+      .pagination_next
+         if page < pages
+            a(href=`${pugRoute}${page + 1}`)
+               span Next Page
