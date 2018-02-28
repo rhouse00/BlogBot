@@ -24,6 +24,7 @@ db.once('open', () => {
 
 // import db models here!!
 require('./models/Post');
+require('./models/User');
 
 const app = require('./app');
 app.set('port', PORT);
