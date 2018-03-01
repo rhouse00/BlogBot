@@ -8,11 +8,11 @@ label {
     background: white;
     padding: 1rem;
     box-shadow: $grey;
+}
 
-    input, textarea {
-        box-sizing: border-box; 
-        padding: 10px;
-        width: 100%;
-        background: white;
-    }
+input, textarea {
+    box-sizing: border-box; 
+    padding: 10px;
+    width: 100%;
+    background: white;
 }
