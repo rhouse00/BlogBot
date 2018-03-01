@@ -14,6 +14,11 @@ const userSchema = mongoose.Schema({
       trim: true,
       unique: true,
       required: 'Please supply an email'
+   },
+   password: {
+      type: String,
+      trim: true,
+      required: 'Please supply a password'
    }
 });
 
