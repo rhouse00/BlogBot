@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const postController = require('../controllers/postController');
+const userController = require('../controllers/userController');
 const { catchErrors } = require('../handlers/errorHandlers');
 
 // SITE VISITOR
@@ -9,10 +10,8 @@ const { catchErrors } = require('../handlers/errorHandlers');
 // landing page
 router.get('/', catchErrors(postController.getPosts) );
 
-// all posts
+// all posts & paginated
 router.get('/posts', catchErrors(postController.getPosts) );
-
-// all posts paginated
 router.get('/posts/page/:page', catchErrors(postController.getPosts) );
 router.get('/admin/posts/page/:page', catchErrors(postController.getPosts) );
 
@@ -20,6 +19,13 @@ router.get('/admin/posts/page/:page', catchErrors(postController.getPosts) );
 // router.get('/posts/:slug', function (){
 //     console.log('yippie');
 // } );
+
+// LOGIN / AUTH pages
+
+router.get('/login', userController.loginForm);
+
+
+router.get('/register', userController.registerForm);
 
 // // ADMIN pages
 
@@ -31,7 +37,7 @@ router.get('/admin', (req, res) => {
 // all posts
 router.get('/admin/posts', catchErrors(postController.getPosts));
 
-// // add post page
+// add post page
 router.get('/admin/add', catchErrors(postController.addPost));
 // edit post page
 router.get('/admin/posts/:id', catchErrors(postController.editPost) );
