@@ -12,11 +12,11 @@ exports.account = (req, res) => {
    res.render('account', {title: 'Account'});
 }
 
-exports.validateRegister = (req, res) => {
+exports.validateRegister = (req, res, next) => {
    req.sanitizeBody('name');
    req.checkBody('name', 'Please provide a name').notEmpty();
    req.checkBody('email', 'Please provide an email').isEmail();
-   req.sanitizeBody('email').trim().normalizeEmail();
+   req.sanitizeBody('email').normalizeEmail();
 
    req.checkBody('password', 'Please provide a password').notEmpty();
    req.checkBody('password_confirm', 'Please input your password again').notEmpty();
@@ -24,14 +24,19 @@ exports.validateRegister = (req, res) => {
 
    const errors = req.validationErrors();
    if(errors) {
-      console.log('errors:\n', errors);
+      res.render('register', {title: 'Register', body: req.body });
+      console.log(errors);
+      return;
    }
-   console.log('all good!')
+   next();
 
 }
 
-exports.register = (req, res) => {
-
+exports.register = async (req, res, next) => {
+   const user = new User({email: req.body.email, name: req.body.name });
+   const register = promisify(User.register, User);
+   await register(user, req.body.password);
+   next();
 }
 
 exports.updateAccount = (req, res) => {

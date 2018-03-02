@@ -3,6 +3,7 @@ const router = express.Router();
 
 const postController = require('../controllers/postController');
 const userController = require('../controllers/userController');
+const authController = require('../controllers/authController');
 const { catchErrors } = require('../handlers/errorHandlers');
 
 // SITE VISITOR
@@ -26,6 +27,11 @@ router.get('/login', userController.loginForm);
 
 
 router.get('/register', userController.registerForm);
+router.post('/register',
+   userController.validateRegister,
+   userController.register,
+   authController.login 
+);
 
 // // ADMIN pages
 
