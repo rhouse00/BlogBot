@@ -24,6 +24,7 @@ router.get('/admin/posts/page/:page', catchErrors(postController.getPosts) );
 // LOGIN / AUTH pages
 
 router.get('/login', userController.loginForm);
+router.post('/login',  authController.login);
 
 
 router.get('/register', userController.registerForm);
