@@ -22,6 +22,7 @@
   "homepage": "https://github.com/rhouse00/BlogBot#readme",
   "dependencies": {
     "body-parser": "1.18.2",
+    "connect-flash": "^0.1.1",
     "connect-mongo": "2.0.1",
     "cookie-parser": "^1.4.3",
     "dotenv": "5.0.0",
