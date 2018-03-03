@@ -1,18 +1,23 @@
 const express = require('express');
+const session = require('express-session');
+const mongoose = require('mongoose');
+const MongoStore = require('connect-mongo')(session);
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
+const flash = require('connect-flash');
 const logger = require('morgan');
-const promisify = require('es6-promisify');
+const { promisify } = require('es6-promisify');
 const path = require('path');
 const passport = require('passport');
-const mongoose = require('mongoose');
-const session = require('express-session');
-const MongoStore = require('connect-mongo')(session);
 const expressValidator = require('express-validator');
+
+require('./handlers/passport');
+
 const app = express();
 
 const routes = require('./routes/routes');
 const helpers = require('./helpers');
+const errorHandlers = require('./handlers/errorHandlers');
 
 require('dotenv').config({ path: 'variables.env'});
 
@@ -38,16 +43,25 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(flash());
 
 app.use( (req, res, next) => {
     res.locals.h = helpers;
+    res.locals.user = req.user || null;
+    res.locals.flashes = req.flash();
     next();
 });
 
-// app.use((req, res, next) => {
-//   req.login = promisify(req.login, req);
-//   next();
-// });
+app.use((req, res, next) => {
+  req.login = promisify(req.login, req);
+  next();
+});
+
+app.use(errorHandlers.flashValidationErrors);
+
+if(app.get('env') === 'development') {
+    app.use(errorHandlers.developmentErrors);
+}
 
 app.use('/', routes);
 module.exports = app;
