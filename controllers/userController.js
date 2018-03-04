@@ -21,10 +21,9 @@ exports.validateRegister = (req, res, next) => {
       remove_extension: false,
       gmail_remove_subaddress: false
    });
-
    req.checkBody('password', 'Please provide a password').notEmpty();
-   req.checkBody('password_confirm', 'Please input your password again').notEmpty();
-   req.checkBody('password_confirm', 'Passwords do not match').equals(req.body.password);
+   req.checkBody('password-confirm', 'Please input your password again').notEmpty();
+   req.checkBody('password-confirm', 'Passwords do not match').equals(req.body.password);
 
    const errors = req.validationErrors();
    if(errors) {
@@ -38,8 +37,8 @@ exports.validateRegister = (req, res, next) => {
 
 exports.register = async (req, res, next) => {
    const user = new User({email: req.body.email, name: req.body.name });
-   const register = promisify(User.register, User);
-   await register(user, req.body.password);
+   const registerWithPromise = promisify(User.register.bind(User));
+   await registerWithPromise(user, req.body.password);
    next();
 }
 
