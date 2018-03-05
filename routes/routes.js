@@ -25,6 +25,7 @@ router.get('/admin/posts/page/:page', catchErrors(postController.getPosts) );
 
 router.get('/login', userController.loginForm);
 router.post('/login',  authController.login);
+router.get('/logout', authController.logout);
 
 
 router.get('/register', userController.registerForm);
@@ -37,17 +38,24 @@ router.post('/register',
 // // ADMIN pages
 
 // // landing page
-router.get('/admin', (req, res) => {
-   res.render('adminLanding', { title: 'Admin Console' } );
+router.get('/admin',
+   authController.isLoggedIn,
+   (req, res) => { res.render('adminLanding', { title: 'Admin Console' } );
 });
 
 // all posts
-router.get('/admin/posts', catchErrors(postController.getPosts));
+router.get('/admin/posts', 
+   authController.isLoggedIn,
+   catchErrors(postController.getPosts));
 
 // add post page
-router.get('/admin/add', catchErrors(postController.addPost));
+router.get('/admin/add', 
+   authController.isLoggedIn,
+   catchErrors(postController.addPost));
 // edit post page
-router.get('/admin/posts/:id', catchErrors(postController.editPost) );
+router.get('/admin/posts/:id', 
+   authController.isLoggedIn,
+   catchErrors(postController.editPost) );
 
 // // create post
 router.post('/admin/add', catchErrors(postController.createPost));
