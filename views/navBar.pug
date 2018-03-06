@@ -1,0 +1,9 @@
+.navBar
+   //- - const navMenu = (user.role === 'admin' ? h.adminNavMenu : h.siteNavMenu )
+   //- - const navMenu = (user.role === 'user' ? h.siteNavMenu : h.adminNavMenu )
+   - const navMenu = h.adminNavMenu
+   each item in navMenu
+      li.nav_item
+            a(href=item.route)
+               span #{item.title}
+   

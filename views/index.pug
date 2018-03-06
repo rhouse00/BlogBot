@@ -8,11 +8,7 @@ html
     body
         block header
             .header
-                .nav
-                    each item in h.siteNavMenu
-                        li
-                            a(href=item.route)
-                                span #{item.title}
+                include navBar
                 .account
         block content
             p this is the default but will be overridden

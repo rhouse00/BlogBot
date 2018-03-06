@@ -1,10 +1,18 @@
 exports.moment = require('moment');
 
 exports.siteNavMenu = [
+   {title: 'Posts', route: '/posts'},
+   {title: 'Register', route: '/register'},
+   {title: 'Login', route: '/login'},
+   {title: 'Logout', route: '/logout'}
+];
+
+exports.adminNavMenu = [
    {title: 'Admin Posts', route: '/admin/posts' },
    {title: 'Add Post', route: '/admin/add'},
-   {title: 'Posts', route: '/posts'},
    {title: 'Admin Console', route: '/admin'},
+   {title: 'Posts', route: '/posts'},
    {title: 'Register', route: '/register'},
+   {title: 'Login', route: '/login'},
    {title: 'Logout', route: '/logout'}
 ];
