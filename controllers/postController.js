@@ -28,6 +28,7 @@ exports.getPosts = async (req, res) => {
 };
 
 exports.createPost = async (req, res) => {
+    req.body.author = req.user._id;
     const post = await (new Post(req.body)).save();
     res.redirect(`/admin/posts/${post._id}`);
 }
