@@ -7,7 +7,7 @@ mixin postList(post ={})
       else if post.content.length <= 40
         p= post.content
    td.post_author
-      p= post.author
+      p= post.author.name
    td.post_date
       p= h.moment(post.created).format("dddd, MMMM Do YYYY, h:mm:ss a")
    td.edit
