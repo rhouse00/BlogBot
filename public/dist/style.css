@@ -62,17 +62,21 @@ input, textarea {
   -webkit-box-sizing: border-box;
           box-sizing: border-box; }
 
-.post_title {
-  font-size: 14px; }
-
-.post_body {
+.post_item {
+  font-size: 12px;
   padding: 0 5px; }
 
-.post_author {
-  font-size: 12px; }
-
-.post_created {
-  font-size: 12px; }
+.button_edit {
+  padding: 0 5px;
+  background: #dddddd;
+  border: 1px solid #cccccc;
+  border-radius: 2px; }
+  .button_edit:hover {
+    background-color: yellow; }
+  .button_edit a {
+    text-decoration: none; }
+    .button_edit a:visited, .button_edit a:link {
+      color: red; }
 
 h2 {
   color: #15afa5; }
