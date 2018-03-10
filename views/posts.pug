@@ -4,8 +4,7 @@ include mixins/_postCard
 include mixins/_pagination
 
 block content
-        .inner
-                .posts 
-                        each post in posts
-                                +postCard(post)
-                +pagination(page, pages, count, pugRoute)
+   .inner
+      each post in posts
+         +postCard(post)
+      +pagination(page, pages, count, pugRoute)
