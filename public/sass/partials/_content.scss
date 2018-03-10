@@ -12,13 +12,13 @@
     flex-direction: row;
 
     .button_block {
-        width: 150px;
-        height: 150px;
+        width: 200px;
+        height: 200px;
         margin: 10px;
         padding: 5px;
         font-size: 12px;
         background-color: $grey;
-        transition: font-size 2s;
+        transition: font-size 250ms;
         a {
             position: relative;
             float: left;
