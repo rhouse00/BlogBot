@@ -6,7 +6,7 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box; }
 
-.container {
+.console_container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -14,15 +14,16 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row; }
-  .container .button_block {
+  .console_container .button_block {
     width: 150px;
     height: 150px;
     margin: 10px;
-    padding: 5px; }
-    .container .button_block.add_block {
-      background-color: yellow; }
-    .container .button_block.post_block {
-      background-color: green; }
+    padding: 5px;
+    font-size: 16px;
+    background-color: #d3d0d0; }
+    .console_container .button_block:hover {
+      background-color: #faf263;
+      font-size: 24px; }
 
 label {
   display: block;
@@ -45,15 +46,13 @@ input, textarea {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex; }
-
-.nav_item {
-  border: 1px solid #ccc;
-  margin: 0 3px;
-  padding: 0 3px;
-  list-style-type: none; }
-
-.nav_link {
-  font-size: 12px; }
+  .navBar .nav_item {
+    border: 1px solid #ccc;
+    margin: 0 3px;
+    padding: 0 3px;
+    list-style-type: none; }
+  .navBar .nav_link {
+    font-size: 12px; }
 
 .post {
   background: white;
@@ -72,7 +71,7 @@ input, textarea {
   border: 1px solid #cccccc;
   border-radius: 2px; }
   .button_edit:hover {
-    background-color: yellow; }
+    background-color: #faf263; }
   .button_edit a {
     text-decoration: none; }
     .button_edit a:visited, .button_edit a:link {
