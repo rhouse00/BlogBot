@@ -4,24 +4,45 @@
    margin: 10px;
    box-sizing: border-box;
 }
+.post_table {
+   width: 100%;
+   margin-top: 15px; 
+   border-collapse: collapse;
 
-.post_item {
-   font-size: 12px;
-   padding: 0 5px;
-}
-
-.button_edit {
-   padding: 0 5px;
-   background: #dddddd;
-   border: 1px solid #cccccc;
-   border-radius: 2px;
-   &:hover {
-      background-color: $yellow;
-   }
-   a {
-      text-decoration: none;
-      &:visited, &:link {
-      color: red;
+   .post_row {
+      border-bottom: 1px solid $grey;
+      &:nth-child(even) {
+         background-color: $lightgrey;
+      }
+      &:nth-child(odd) {
+         background-color: white;
+      }
+      &:last-child {
+         border-bottom-style: none;
+      }
+      .post_item {
+         font-size: 12px;
+         padding: 0 5px;
+      }
+      
+      .button_edit {
+         width: 45px;
+         position: relative;
+         &:hover {
+            background-color: $yellow;
+         }
+         a {
+            position: absolute;
+            float: left;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            text-decoration: none;
+            &:visited, &:link {
+            color: red;
+            }
+         }
       }
    }
 }
