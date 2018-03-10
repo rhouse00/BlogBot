@@ -1,14 +1,17 @@
 mixin postList(post ={})
-   td.post_item
-      p= post.title
-   td.post_item
-      if post.content.length > 40
-         p= post.content.substr(0,40) + '...'
-      else if post.content.length <= 40
-        p= post.content
-   td.post_item
-      p= post.author.name
-   td.post_item
-      p= h.moment(post.created).format("dddd, MMMM Do YYYY, h:mm:ss a")
-   td.button_edit
-      a(href=`/admin/posts/${post._id}`) Edit
+  td.post_item
+    p= post.title
+  td.post_item
+    if post.content.length > 40
+        p= post.content.substr(0,40) + '...'
+    else if post.content.length <= 40
+      p= post.content
+  td.post_item
+     p= post.author.name
+  td.post_item
+    p= h.moment(post.created).format("ddd, MMMM Do YYYY, h:mm:ss a")
+  td.post_item
+    p= h.moment(post.updated).format("ddd, MMMM Do YYYY, h:mm:ss a") 
+  td.post_item.button_edit
+    a(href=`/admin/posts/${post._id}`) 
+      span Edit
