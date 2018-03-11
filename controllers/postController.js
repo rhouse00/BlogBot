@@ -43,6 +43,8 @@ exports.editPost = async (req, res, next) => {
 };
 
 exports.updatePost = async (req, res) => {
+    req.body.author = req.user._id;
+    req.body.updated = Date.now();
     const post = await Post.findOneAndUpdate({_id: req.params.id}, req.body, {
         new: true
         // runValidators: true - reruns validators
