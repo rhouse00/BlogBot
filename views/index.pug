@@ -12,6 +12,9 @@ html
                 .account
         block content
             p this is the default but will be overridden
+        block sidebar
+            .sidebar
+                include sideBar
         block messages
             if locals.flashes
                 .inner

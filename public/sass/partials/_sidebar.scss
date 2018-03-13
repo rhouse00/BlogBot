@@ -1,0 +1,21 @@
+.sidebar {
+   .sidebarTabs {
+      background-color: $grey;
+      border: 2px solid $lightgrey;
+      overflow: hidden;
+      font-size: 16px
+   }
+   .sidebarContent {
+      padding: 5px;
+      margin: 10px;
+      border: 2px solid $grey;
+      .tabContent {
+         h3 {
+            font-size: 16px;
+         }
+         p {
+            font-size: 12px;
+         }
+      }
+   }
+}
