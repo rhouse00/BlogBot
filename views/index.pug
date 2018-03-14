@@ -6,26 +6,27 @@ html
         meta(charser='utf8')
         link(rel='stylesheet', href='/dist/style.css')
     body
-        block header
-            .header
-                include navBar
-                .account
-        block content
-            p this is the default but will be overridden
-        block sidebar
-            .sidebar
-                include sideBar
+        .grid_container
+            block header
+                .header.grid_item_01
+                    include navBar
+                    .account
+            .main.grid_item_02
+                block content
+            block sidebar
+                .sidebar.grid_item_03
+                    include sideBar
         block messages
             if locals.flashes
-                .inner
-                    .flash-messages
-                        - const categories = Object.keys(locals.flashes)
-                        each category in categories
-                            each message in flashes[category]
-                                .flash(class=`flash--${category}`)
-                                p.flash__text!= message
-                                button.flash__remove(onClick="this.parentElement.remove()") &times;
+                .flash-messages
+                    - const categories = Object.keys(locals.flashes)
+                    each category in categories
+                        each message in flashes[category]
+                            .flash(class=`flash--${category}`)
+                            p.flash__text!= message
+                            button.flash__remove(onClick="this.parentElement.remove()") &times;
         block footer
-            p a FunBot Inc. production
+            .footer
+                p a FunBot Inc. production
         block scripts
             script(src='/dist/App.bundle.js')
