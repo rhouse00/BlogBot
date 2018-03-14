@@ -1,8 +1,9 @@
 extends index
 
 block content
-   .console_container
-      each page in h.adminNavMenu
-            .button_block
-                  a(href=page.route)
-                        span #{page.title}
+      .inner
+            .console_container
+                  each page in h.adminNavMenu
+                        .button_block
+                              a(href=page.route)
+                                    span #{page.title}

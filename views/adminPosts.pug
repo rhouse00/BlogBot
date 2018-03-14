@@ -4,16 +4,17 @@ include mixins/_postList
 include mixins/_pagination
 
 block content
-  table.post_table
-    thead
-        tr
-          th Post Title
-          th Content
-          th Author
-          th Created
-          th Updated
-    tbody
-        each post in posts
-          tr.post_row
-            +postList(post)
-  +pagination(page, pages, count, pugRoute)
+  .inner
+    table.post_table
+      thead
+          tr
+            th Post Title
+            th Content
+            th Author
+            th Created
+            th Updated
+      tbody
+          each post in posts
+            tr.post_row
+              +postList(post)
+    +pagination(page, pages, count, pugRoute)

@@ -3,7 +3,8 @@ extends index
 include mixins/_postForm
 
 block content
-    .postcard
-        h3= title
-        .form
-            +postForm(post)
+    .inner
+        .postcard
+            h3= title
+            .form
+                +postForm(post)
