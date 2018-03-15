@@ -72,11 +72,36 @@
 
 __webpack_require__(1);
 
+var _sidebar = __webpack_require__(2);
+
+var _sidebar2 = _interopRequireDefault(_sidebar);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+(0, _sidebar2.default)('.sidebarTab');
+
 /***/ }),
 /* 1 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+   value: true
+});
+function sideBar(elem) {
+   var tabs = document.querySelectorAll(elem);
+   tabs[0].style.backgroundColor = 'red';
+};
+
+exports.default = sideBar;
 
 /***/ })
 /******/ ]);
