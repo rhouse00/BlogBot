@@ -3,7 +3,10 @@
       background-color: $grey;
       border: 2px solid $lightgrey;
       overflow: hidden;
-      font-size: 16px
+      font-size: 16px;
+      .active {
+         background-color: $yellow;
+      }
    }
    .sidebarContent {
       padding: 5px;
