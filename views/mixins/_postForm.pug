@@ -1,10 +1,11 @@
 mixin postForm(post = {})
+    - const author_name = post.author && post.author.name ? post.author.name : ''
     form(action=`/admin/add/${post._id || ''}` method='POST')
         label(for='title') Title
         input(type='text' name='title' value=post.title)
         label(for='content') Content
         textarea(name='content')= post.content
         label(for='author') Author
-        input(type='text' name='author' value=(post.author.name || ''))
+        input(type='text' name='author' value=(author_name))
         input.button(type='submit' value='Save' class='button')
     
