@@ -1,6 +1,13 @@
 function sideBar(elem) {
    const tabs = document.querySelectorAll(elem);
-   tabs[0].style.backgroundColor = 'red';
+   tabs.forEach((el) => {
+      el.addEventListener('click', (e) => {
+         e.preventDefault();
+         const active = document.querySelector('.active');
+         active.classList.remove('active');
+         el.classList.add('active');
+      });
+   });
 };
 
 export default sideBar;
