@@ -1,7 +1,9 @@
 .sidebar {
+   border: 1px solid $grey;
+   height: 300px;
    .sidebarTabs {
       background-color: $grey;
-      border: 2px solid $lightgrey;
+      // border: 1px solid $lightgrey;
       overflow: hidden;
       font-size: 16px;
       .active {
@@ -10,7 +12,7 @@
    }
    .sidebarContent {
       padding: 5px;
-      border: 2px solid $grey;
+      
       .tabContent {
          display: none;
          h3 {
@@ -19,7 +21,7 @@
          p {
             font-size: 12px;
          }
-         #popular {
+         &#popular {
             display: block;
          }
       }
