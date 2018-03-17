@@ -12,11 +12,15 @@
       padding: 5px;
       border: 2px solid $grey;
       .tabContent {
+         display: none;
          h3 {
             font-size: 16px;
          }
          p {
             font-size: 12px;
+         }
+         #popular {
+            display: block;
          }
       }
    }
