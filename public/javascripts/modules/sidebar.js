@@ -1,11 +1,19 @@
-function sideBar(elem) {
-   const tabs = document.querySelectorAll(elem);
-   tabs.forEach((el) => {
-      el.addEventListener('click', (e) => {
+function sideBar(el) {
+   const tabs = document.querySelectorAll(el);
+   
+   tabs.forEach((elem) => {
+      elem.addEventListener('click', (e) => {
          e.preventDefault();
-         const active = document.querySelector('.active');
-         active.classList.remove('active');
-         el.classList.add('active');
+         document.querySelector('.active').classList.remove('active');
+         elem.classList.add('active');
+
+         document.querySelectorAll('.tabContent')
+            .forEach((element) => {
+               element.style.display = 'none';
+            });
+
+         document.getElementById(elem.dataset.name)
+            .style.display = 'block';
       });
    });
 };
