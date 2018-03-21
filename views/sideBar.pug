@@ -1,9 +1,9 @@
 - const is_true = currentPath.includes('admin');
 if !is_true
       .sidebarTabs
-            button.sidebarTab.active(type='button' data-name='popular') Popular
-            button.sidebarTab(type='button' data-name='curated') Curated
-            button.sidebarTab(type='button' data-name='featured') Featured
+            input.sidebarTab.active(type='button' data-name='popular' value='Popular')
+            input.sidebarTab(type='button' data-name='curated' value='Curated')
+            input.sidebarTab(type='button' data-name='featured' value='Featured')
       .sidebarContent
             #popular.tabContent
                   h3 Popular Posts
