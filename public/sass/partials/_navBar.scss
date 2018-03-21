@@ -1,6 +1,7 @@
 .navBar {
    display: flex;
-
+   background-color: $lightgrey;
+   height: 30px;
    .nav_item {
       border: 1px solid #ccc;
       margin: 0 3px;
