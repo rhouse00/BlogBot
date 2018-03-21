@@ -1,9 +1,10 @@
 .post {
-   background: white;
+   background: $lightgrey;
    padding: 5px;
-   margin: 10px;
+   margin: 20px;
    box-sizing: border-box;
-   position: relative;
+   box-shadow: 10px 10px 20px $yellow;
+   border-radius: 1px;
 }
 .post_table {
    width: 100%;
