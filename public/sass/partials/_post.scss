@@ -12,15 +12,17 @@
    border-collapse: collapse;
 
    .post_row {
-      border-bottom: 1px solid $grey;
       &:nth-child(even) {
          background-color: $lightgrey;
       }
       &:nth-child(odd) {
          background-color: white;
       }
-      &:last-child {
-         border-bottom-style: none;
+      &:hover {
+         > .button_edit {
+            background-color: $yellow;
+
+         }
       }
       .post_item {
          font-size: 12px;
@@ -30,9 +32,6 @@
       .button_edit {
          width: 45px;
          position: relative;
-         &:hover {
-            background-color: $yellow;
-         }
          a {
             position: absolute;
             float: left;
