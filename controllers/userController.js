@@ -43,11 +43,17 @@ exports.register = async (req, res, next) => {
 }
 
 exports.getAccounts = async (req, res) => {
-   const user = await User
+   const users = await User
       .find()
       .sort({ name: 1 });
 
-   res.render('adminAccounts', {title: 'User List', user});
+   res.render('adminAccounts', {title: 'User List', users});
+}
+
+exports.getAccountById = async (req, res) => {
+   const user = await User
+      .findById(req.params.id);
+   res.render('adminAccountUpdate', {title: 'Update User', user});
 }
 
 exports.updateAccount = (req, res) => {
