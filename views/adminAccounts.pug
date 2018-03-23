@@ -1,0 +1,18 @@
+extends index
+
+block content
+   .inner
+      table
+         thead
+            th Name
+            th Email
+            //- th Member since
+         tbody
+            each item in user
+               tr
+                  td #{item.name}
+                  td #{item.email}
+                  //- td #{item.created}
+                  td
+                     a(href=`admin/acccounts/${item._id}`)
+                        span Edit
