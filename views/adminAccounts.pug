@@ -6,13 +6,11 @@ block content
          thead
             th Name
             th Email
-            //- th Member since
          tbody
-            each item in user
+            each item in users
                tr
                   td #{item.name}
                   td #{item.email}
-                  //- td #{item.created}
                   td
-                     a(href=`admin/acccounts/${item._id}`)
+                     a(href=`/admin/accounts/edit/${item._id}`)
                         span Edit
