@@ -35,6 +35,8 @@ router.post('/register',
    authController.login 
 );
 
+router.get('/admin/accounts', catchErrors(userController.getAccounts));
+
 // // ADMIN pages
 
 // // landing page
