@@ -36,6 +36,7 @@ router.post('/register',
 );
 
 router.get('/admin/accounts', catchErrors(userController.getAccounts));
+router.get('/admin/accounts/edit/:id', catchErrors(userController.getAccountById))
 
 // // ADMIN pages
 
