@@ -42,6 +42,18 @@ exports.register = async (req, res, next) => {
    next();
 }
 
-exports.updateAccount = (req, res) => {
+exports.getAccounts = async (req, res) => {
+   const user = await User
+      .find()
+      .sort({ name: 1 });
 
+   res.render('adminAccounts', {title: 'User List', user});
+}
+
+exports.updateAccount = (req, res) => {
+   const user = User.findOneAndUpdate({_id: req.params.id}, req.body, {
+      new: true,
+      runValidators: true
+   }).exec();
+   res.redirect('/admin/account');
 }
