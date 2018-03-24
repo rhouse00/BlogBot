@@ -30,13 +30,18 @@ router.get('/logout', authController.logout);
 
 router.get('/register', userController.registerForm);
 router.post('/register',
-   userController.validateRegister,
+   userController.validateEmailAndName,
+   userController.validatePassword,
    userController.register,
    authController.login 
 );
 
 router.get('/admin/accounts', catchErrors(userController.getAccounts));
-router.get('/admin/accounts/edit/:id', catchErrors(userController.getAccountById))
+router.get('/admin/accounts/edit/:id', catchErrors(userController.getAccountById));
+router.post('/admin/accounts/edit/:id', 
+   userController.validateEmailAndName,
+   userController.updateAccount   
+);
 
 // // ADMIN pages
 
