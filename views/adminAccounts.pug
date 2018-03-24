@@ -7,10 +7,10 @@ block content
             th Name
             th Email
          tbody
-            each item in users
+            each user in users
                tr
-                  td #{item.name}
-                  td #{item.email}
+                  td #{user.name}
+                  td #{user.email}
                   td
-                     a(href=`/admin/accounts/edit/${item._id}`)
+                     a(href=`/admin/accounts/edit/${user._id}`)
                         span Edit
