@@ -12,7 +12,7 @@ exports.account = (req, res) => {
    res.render('account', {title: 'Account'});
 }
 
-exports.validateRegister = (req, res, next) => {
+exports.validateEmailAndName = (req, res, next) => {
    req.sanitizeBody('name');
    req.checkBody('name', 'Please provide a name').notEmpty();
    req.checkBody('email', 'Please provide an email').isEmail();
@@ -21,9 +21,6 @@ exports.validateRegister = (req, res, next) => {
       remove_extension: false,
       gmail_remove_subaddress: false
    });
-   req.checkBody('password', 'Please provide a password').notEmpty();
-   req.checkBody('password-confirm', 'Please input your password again').notEmpty();
-   req.checkBody('password-confirm', 'Passwords do not match').equals(req.body.password);
 
    const errors = req.validationErrors();
    if(errors) {
@@ -33,6 +30,19 @@ exports.validateRegister = (req, res, next) => {
    }
    next();
 
+}
+
+exports.validatePassword = (req, res, next) => {
+   req.checkBody('password', 'Please provide a password').notEmpty();
+   req.checkBody('password-confirm', 'Please input your password again').notEmpty();
+   req.checkBody('password-confirm', 'Passwords do not match').equals(req.body.password);
+   const errors = req.validationErrors();
+   if(errors) {
+      req.flash('error', errors.map(err => err.msg));
+      res.render('register', {title: 'Register', body: req.body });
+      return;
+   }
+   next();
 }
 
 exports.register = async (req, res, next) => {
@@ -61,5 +71,5 @@ exports.updateAccount = (req, res) => {
       new: true,
       runValidators: true
    }).exec();
-   res.redirect('/admin/account');
+   res.redirect('/admin/accounts');
 }
