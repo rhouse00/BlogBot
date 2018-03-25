@@ -1,9 +1,16 @@
 .navBar
    //- - const navMenu = (user.role === 'admin' ? h.adminNavMenu : h.siteNavMenu )
    //- - const navMenu = (user.role === 'user' ? h.siteNavMenu : h.adminNavMenu )
-   - const navMenu = h.adminNavMenu
-   each item in navMenu
-      li.nav_item
-         a.nav_link(href=item.route)
-            span #{item.title}
+   - const navMenuLeft = h.adminNavMenuLeft
+   - const navMenuRight = h.adminNavMenuRight
+   nav.menu_left
+      each item in navMenuLeft
+         li.nav_item
+            a.nav_link(href=item.route)
+               span #{item.title}
+   nav.menu_right           
+      each item in navMenuRight
+         li.nav_item
+               a.nav_link(href=item.route)
+                  span #{item.title}
    
