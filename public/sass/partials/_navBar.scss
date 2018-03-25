@@ -2,11 +2,21 @@
    display: flex;
    background-color: $lightgrey;
    height: 30px;
+   .menu_left {
+      display: flex;
+   }
+   .menu_right {
+      display: flex;
+      margin-left: auto;
+   }
    .nav_item {
-      border: 1px solid #ccc;
-      margin: 0 3px;
-      padding: 0 3px;
+      // border: 1px solid #ccc;
+      margin: 2px 4px;
+      padding: 2px 4px;
       list-style-type: none;
+      &:nth-last-child(-n+3) {
+         margin-left: auto;
+      }
    }
 
    .nav_link {
