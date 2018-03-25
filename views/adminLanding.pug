@@ -3,7 +3,7 @@ extends index
 block content
       .inner
             .console_container
-                  each page in h.adminNavMenu
+                  each page in h.adminNavMenuLeft
                         .button_block
                               a(href=page.route)
                                     span #{page.title}
