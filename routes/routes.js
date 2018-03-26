@@ -72,7 +72,8 @@ router.post('/admin/add', catchErrors(postController.createPost));
 router.post('/admin/add/:id', catchErrors(postController.updatePost) );
 
 // send email
-router.get('/admin/email', catchErrors(emailController.sendEmail));
+router.get('/admin/email', emailController.createEmail);
+router.post('/admin/email', catchErrors(emailController.sendEmail));
 
 module.exports = router;
 
