@@ -4,6 +4,7 @@ const router = express.Router();
 const postController = require('../controllers/postController');
 const userController = require('../controllers/userController');
 const authController = require('../controllers/authController');
+const emailController = require('../controllers/emailController');
 const { catchErrors } = require('../handlers/errorHandlers');
 
 // SITE VISITOR
@@ -65,10 +66,13 @@ router.get('/admin/posts/:id',
    authController.isLoggedIn,
    catchErrors(postController.editPost) );
 
-// // create post
+// create post
 router.post('/admin/add', catchErrors(postController.createPost));
-// // update post
+// update post
 router.post('/admin/add/:id', catchErrors(postController.updatePost) );
+
+// send email
+router.get('/admin/email', catchErrors(emailController.sendEmail));
 
 module.exports = router;
 
