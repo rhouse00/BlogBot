@@ -1,0 +1,12 @@
+extends index
+
+block content
+      .inner
+            form.form(action='/admin/email' method='POST')
+                  label(for='email') Email address to send to
+                  input(type='email' name='email' placeholder='adamdouglas@guide.com')
+                  label(for='subject') Subject Line
+                  input(type='text' name='subject' placeholder='Example Subject Line')
+                  label(for='content') Content of email
+                  input(type='text' name='content' placeholder='Company XYZ big sale...')
+                  input.button(type='submit' value='Send Email')
