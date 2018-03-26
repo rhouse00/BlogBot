@@ -16,34 +16,30 @@ const transporter = nodemailer.createTransport({
    }
 });
 
-
-
-// transporter.sendMail(mailOptions, (err, info) => {
-//    if (err) {
-//       return console.log('Error:', err);
-//    }
-//    console.log('Message Sent: ', info.messageId);
-//    console.log('Preview URL: ', nodemailer.getTestMessageUrl(info));
-// })
+const getHTML = (filename, options = {}) => {
+   const html = pug.renderFile(`${__dirname}/../views/email/${filename}.pug`, options);
+   const inlined = juice(html);
+   return inlined;
+}
 
 exports.send = async (options) => {
+   const html = getHTML(options.filename, options);
+   const text = htmlToText.fromString(html);
    const mailOptions = {
       from: ' "Mr. Example" <example@mail.com>' ,
       to: ' "Ms. Example" <other_example@mail.com>',
       subject: options.subject,
-      html: '<button>Hey</button>',
-      text: 'Hey' 
+      html,
+      text
    };
-
-   const sendMail = await transporter.sendMail(mailOptions, (error, info) => {
-      if (error) {
-          return console.log(error);
-      }
-      console.log('Message sent: %s', info.messageId);
-      console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
-  });
-
-
+   const sendMail = await transporter
+      .sendMail(mailOptions, (err, info) => {
+         if (err) {
+            return console.log(err);
+         }
+         console.log('Message sent: %s', info.messageId);
+         console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+      });
 
    return sendMail;
 }
