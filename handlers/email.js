@@ -4,15 +4,12 @@ const htmlToText = require('html-to-text');
 const juice = require('juice');
 const promisify = require('es6-promisify');
 
-const email = 'x6wvj7vpne7ydub2@ethereal.email';
-const password = 'WJWrN2fH89EUKredqA';
-
 const transporter = nodemailer.createTransport({
    host: 'smtp.ethereal.email',
    post: 587,
    auth: {
-      user: email,
-      pass: password
+      user: process.env.MAIL_DEV_EMAIL,
+      pass: process.env.MAIL_DEV_PASSWORD
    }
 });
 
@@ -27,7 +24,7 @@ exports.send = async (options) => {
    const text = htmlToText.fromString(html);
    const mailOptions = {
       from: ' "Mr. Example" <example@mail.com>' ,
-      to: ' "Ms. Example" <other_example@mail.com>',
+      to: options.to,
       subject: options.subject,
       html,
       text

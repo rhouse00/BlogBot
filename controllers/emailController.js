@@ -6,10 +6,10 @@ exports.createEmail = (req, res) => {
 };
 
 exports.sendEmail = async (req, res) => {
-   console.log(req.body);
    await mail.send({
       subject: req.body.subject,
       content: req.body.content,
+      to: req.body.email,
       filename: 'testEmail'
    });
 
