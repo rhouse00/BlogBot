@@ -64,12 +64,17 @@ router.get('/admin/add',
 // edit post page
 router.get('/admin/posts/:id', 
    authController.isLoggedIn,
-   catchErrors(postController.editPost) );
+   catchErrors(postController.editPost));
 
 // create post
 router.post('/admin/add', catchErrors(postController.createPost));
 // update post
-router.post('/admin/add/:id', catchErrors(postController.updatePost) );
+router.post('/admin/add/:id', catchErrors(postController.updatePost));
+
+// curate posts
+router.get('/admin/curate', 
+   authController.isLoggedIn,
+   catchErrors(postController.getPosts));
 
 // send email
 router.get('/admin/email', emailController.createEmail);
