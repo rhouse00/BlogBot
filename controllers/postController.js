@@ -3,7 +3,9 @@ const mongoose = require('mongoose');
 const Post = mongoose.model('Post');
 
 exports.getPosts = async (req, res) => {
-    const pugFile = req.path.includes('admin') ? 'adminPosts' : 'posts';
+    const pugFile = req.path.includes('curate') ?  'adminCreateCuratedLists'
+        : req.path.includes('admin') ? 'adminPosts' 
+        : 'posts';
     const pugRoute = pugFile === "adminPosts" ? '/admin/posts/page/' : '/posts/page/';
     const page = req.params.page || '1';
     const limit = 6;
