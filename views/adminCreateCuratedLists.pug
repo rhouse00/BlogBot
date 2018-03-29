@@ -1,0 +1,15 @@
+extends index
+
+include mixins/_curatedForm
+
+block content
+  .inner
+    table.post_table
+      thead
+          tr
+            th Post Title
+            th Content
+      tbody
+          each post in posts
+            tr.post_row
+              +curatedForm(post)

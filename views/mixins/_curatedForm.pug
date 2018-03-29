@@ -1,0 +1,10 @@
+mixin curatedForm(post ={})
+   td.post_item
+    p= post.title
+   td.post_item
+      if post.content.length > 80
+         p= post.content.substr(0,80) + '...'
+      else if post.content.length <= 80
+         p= post.content
+   td.post_item.button_add
+      button(value=post._id) Add
