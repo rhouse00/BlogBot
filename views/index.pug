@@ -13,9 +13,10 @@ html
                     .account
             .main.grid_item_02
                 block content
-            block sidebar
-                .sidebar.grid_item_03
-                    include sideBar
+            if !locals.currentPath.includes('admin')
+                block sidebar
+                    .sidebar.grid_item_03
+                        include sideBar
         block messages
             if locals.flashes
                 .flash-messages
