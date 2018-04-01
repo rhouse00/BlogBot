@@ -5,15 +5,16 @@ function curationPicker(element, targetElem) {
    posts.forEach((elem) => {
       elem.addEventListener('click', (e) => {
          e.preventDefault();
-         let child = e.target.className;
-         let parent = e.path[3];
-         // let parNode = child.parentNode.nodeName;
+         let child = e.target.parentNode.parentNode;
+         // let parent = e.path[3];
+         let parNode = e.target.parentNode.parentNode.parentNode;
          console.log(child);
-         console.log(parent);
-         // console.log(parNode);
-         console.log(e)
-         parent.removeChild(child);
-         targetElem.appendChild(child);
+         // console.log(parent);
+         console.log(parNode);
+         // console.log(targetElem);
+         
+         parNode.removeChild(child);
+         document.querySelector(targetElem).appendChild(child);
          console.log(e.target.value);
       })
    })
