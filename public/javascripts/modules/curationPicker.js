@@ -1,24 +1,18 @@
 
-function curationPicker(element, targetElem, newClassName) {
-   // const posts = document.querySelectorAll(element);
+function curationPicker(element, targetElement, newClass, value) {
    const el = document.querySelector(element);
-   console.log(el);
+
    el.addEventListener('click', (e) => {
       e.preventDefault();
-      let child = e.target.parentNode.parentNode;
-      console.log(child);
-      let parNode = e.target.parentNode.parentNode.parentNode;
-      console.log(parNode);
-      e.target.className = newClassName;
+      let child = e.target.parentNode.parentNode; // button -> td -> tr
+      let parNode = e.target.parentNode.parentNode.parentNode; // button -> td -> tr -> tbody
+      
+      e.target.className = newClass;
+      e.target.innerHTML = value;
+     
       parNode.removeChild(child);
-      document.querySelector(targetElem).appendChild(child);
-   })
-
-   
-   // el.addEventListener('click', (e) => {
-   //    console.log(e);
-   // })
-
+      document.querySelector(targetElement).appendChild(child);
+   });
 }
 
 export default curationPicker;
