@@ -4,4 +4,5 @@ import sideBar from './modules/sidebar';
 import curationPicker from './modules/curationPicker';
 
 sideBar('.sidebarTab');
-curationPicker('.button_add', '.selected_list');
+curationPicker('.unselected_list', '.selected_list', 'button_remove');
+curationPicker('.selected_list', '.unselected_list', 'button_add');
