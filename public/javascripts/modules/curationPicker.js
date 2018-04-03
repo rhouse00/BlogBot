@@ -4,9 +4,9 @@ function curationPicker(element, targetElement, newClass, value) {
 
    el.addEventListener('click', (e) => {
       e.preventDefault();
+      if(e.target.nodeName !== 'BUTTON') {return};
       let child = e.target.parentNode.parentNode; // button -> td -> tr
       let parNode = e.target.parentNode.parentNode.parentNode; // button -> td -> tr -> tbody
-      
       e.target.className = newClass;
       e.target.innerHTML = value;
      
