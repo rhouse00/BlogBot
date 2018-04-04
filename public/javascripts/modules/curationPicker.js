@@ -1,5 +1,6 @@
 
 function curationPicker(element, targetElement, newClass, value) {
+   if(!window.document.URL.includes('curate')) {return}
    const el = document.querySelector(element);
 
    el.addEventListener('click', (e) => {
