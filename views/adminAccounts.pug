@@ -2,15 +2,15 @@ extends index
 
 block content
    .inner
-      table
+      table.post_table
          thead
             th Name
             th Email
          tbody
             each user in users
-               tr
-                  td #{user.name}
-                  td #{user.email}
-                  td
+               tr.post_row
+                  td.post_item #{user.name}
+                  td.post_item #{user.email}
+                  td.post_item.button_edit
                      a(href=`/admin/accounts/edit/${user._id}`)
                         span Edit
