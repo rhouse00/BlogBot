@@ -13,7 +13,8 @@ exports.adminNavMenuLeft = [
    {title: 'Admin Console', route: '/admin'},
    {title: 'Accounts', route: '/admin/accounts'},
    {title: 'Posts', route: '/posts'},
-   {title: 'Email', route: '/admin/email'}
+   {title: 'Email', route: '/admin/email'},
+   {title: 'Post Curation', route: '/admin/curate'}
 ];
 
 exports.adminNavMenuRight = [
