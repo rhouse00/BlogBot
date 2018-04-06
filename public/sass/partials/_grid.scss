@@ -10,6 +10,7 @@
 }
 .grid_item_02 {
    display: grid;
+   grid-template-columns: repeat(8, 1fr); // for curated_list && curated_selected_list
    grid-column: 1 / span 6;
    grid-row: 2;
 }
