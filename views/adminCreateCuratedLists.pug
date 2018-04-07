@@ -3,24 +3,24 @@ extends index
 include mixins/_curatedForm
 
 block content
-
-   .inner.curate_content.curated_list
-      h2 Select from this list...
-      table.post_table
-            thead
-                  tr
-                        th Post Title
-                        th Content
-            tbody.unselected_list
-                  each post in posts
-                        tr.post_row
-                        +curatedForm(post)
-   .inner.curate_content.curated_selected_list
-      h2 ...Add to this list
-      table.post_table
-            thead
-                  tr
-                        th Post Title
-                        th Content
-            tbody.selected_list
+      .inner.curate_content
+            .curated_list
+                  h2 Select from this list...
+                  table.post_table
+                        thead
+                              tr
+                                    th Post Title
+                                    th Content
+                        tbody.unselected_list
+                              each post in posts
+                                    tr.post_row
+                                    +curatedForm(post)
+            .curated_selected_list
+                  h2 ...Add to this list
+                  table.post_table
+                        thead
+                              tr
+                                    th Post Title
+                                    th Content
+                        tbody.selected_list
             
