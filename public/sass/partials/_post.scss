@@ -14,14 +14,14 @@
    .post_row {
       &:nth-child(even) {
          background-color: $lightgrey;
+         &:hover {
+            background: linear-gradient(to right, $lightgrey, $yellow);
+         }
       }
       &:nth-child(odd) {
          background-color: white;
-      }
-      &:hover {
-         > .button_edit {
-            background-color: $yellow;
-
+         &:hover {
+            background: linear-gradient(to right, white, $yellow);
          }
       }
       .post_item {
